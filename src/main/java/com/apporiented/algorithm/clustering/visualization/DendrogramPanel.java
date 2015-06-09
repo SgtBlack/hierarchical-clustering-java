@@ -30,6 +30,8 @@ import com.apporiented.algorithm.clustering.AverageLinkageStrategy;
 import com.apporiented.algorithm.clustering.Cluster;
 import com.apporiented.algorithm.clustering.ClusteringAlgorithm;
 import com.apporiented.algorithm.clustering.DefaultClusteringAlgorithm;
+import com.apporiented.algorithm.clustering.infile.Distance;
+import com.apporiented.algorithm.clustering.infile.ReadFile;
 
 public class DendrogramPanel extends JPanel {
 
@@ -297,7 +299,8 @@ public class DendrogramPanel extends JPanel {
         dp.setScaleValueInterval(1);
         dp.setShowDistances(false);
 
-        Cluster cluster = createSampleCluster();
+        //Cluster cluster = createSampleCluster();
+        Cluster cluster = createReadFileCluster();
         dp.setModel(cluster);
         frame.setVisible(true);
     }
@@ -309,6 +312,28 @@ public class DendrogramPanel extends JPanel {
         ClusteringAlgorithm alg = new DefaultClusteringAlgorithm();
         Cluster cluster = alg.performClustering(distances, names, new AverageLinkageStrategy());
         cluster.toConsole(0);
+        return cluster;
+    }
+    
+    private static Cluster createReadFileCluster(){
+        
+        ReadFile rf = new ReadFile( "example.arff" );
+        
+        Distance d = new Distance( rf.getData() );
+
+        
+        double[][] distances = d.getDistMatrix();
+        String[] names = new String[distances.length];
+        
+        
+        for(int i = 0; i < distances.length; i++){
+            names[i] = Integer.toString(i);
+        }
+        
+        ClusteringAlgorithm alg = new DefaultClusteringAlgorithm();
+        Cluster cluster = alg.performClustering(distances, names, new AverageLinkageStrategy());
+        cluster.toConsole(0);
+        
         return cluster;
     }
 

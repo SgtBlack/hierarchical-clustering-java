@@ -30,11 +30,9 @@ public class Main {
         //String[] names = new String[] { "O1", "O2", "O3", "O4", "O5", "O6" };
         
         ReadFile rf = new ReadFile( "example.arff" );
-        rf.read();
         
         Distance d = new Distance( rf.getData() );
-        
-        d.calculate();
+
         
         double[][] distances = d.getDistMatrix();
         String[] names = new String[distances.length];

@@ -22,7 +22,7 @@ public class ReadFile {
     private float[][] dataMatrix;
     
     
-    ReadFile(String file){
+    public ReadFile(String file){
         fileName = file;
         
         dimensions = readDimensions();
@@ -30,13 +30,15 @@ public class ReadFile {
         anzExamples = readAnzExamples();
         
         dataMatrix = new float[anzExamples][dimensions];
+        
+        read();
     }
     
     public float[][] getData(){
         return dataMatrix;
     }
    
-    public void read() {
+    private void read() {
 
         // This will reference one line at a time
         String line = null;

@@ -17,7 +17,7 @@ public class Distance {
     private int dimensions;
     
     
-    Distance(float[][] matrix){
+    public Distance(float[][] matrix){
         posDataMatrix = matrix;
         
         anzExamples = posDataMatrix.length;
@@ -25,13 +25,15 @@ public class Distance {
         dimensions = posDataMatrix[0].length;
         
         distDataMatrix = new double[anzExamples][anzExamples];
+        
+        calculate();
     }
     
     public double[][] getDistMatrix(){
         return distDataMatrix;
     }
     
-    public void calculate(){
+    private void calculate(){
     
         double dist;
         float sum;
