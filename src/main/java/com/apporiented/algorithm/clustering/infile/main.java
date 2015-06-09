@@ -14,7 +14,7 @@ import com.apporiented.algorithm.clustering.DefaultClusteringAlgorithm;
  *
  * @author Fabian
  */
-public class main {
+public class Main {
 
     /**
      * @param args the command line arguments
@@ -28,10 +28,24 @@ public class main {
         //Cluster cluster = alg.performClustering(distances, names, new AverageLinkageStrategy());
         //cluster.toConsole(0);
         
-        readFile rf = new readFile("example.arff");
-        
+        ReadFile rf = new ReadFile( "example.arff" );
         rf.read();
         
+        Distance d = new Distance( rf.getData() );
+        
+        d.calculate();
+        
+        double[][] distances = d.getDistMatrix();
+        String[] names = new String[distances.length];
+        
+        
+        for(int i = 0; i < distances.length; i++){
+            names[i] = Integer.toString(i);
+        }
+        
+        ClusteringAlgorithm alg = new DefaultClusteringAlgorithm();
+        Cluster cluster = alg.performClustering(distances, names, new AverageLinkageStrategy());
+        cluster.toConsole(0);
         
     }
     

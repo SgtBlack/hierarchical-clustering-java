@@ -14,7 +14,7 @@ import java.io.IOException;
  *
  * @author Fabian
  */
-public class readFile {
+public class ReadFile {
     
     private String fileName;
     private int dimensions;
@@ -22,7 +22,7 @@ public class readFile {
     private float[][] dataMatrix;
     
     
-    readFile(String file){
+    ReadFile(String file){
         fileName = file;
         
         dimensions = readDimensions();
