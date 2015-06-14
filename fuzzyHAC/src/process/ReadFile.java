@@ -16,13 +16,9 @@ public class ReadFile {
     
     public ReadFile(String file){
         fileName = file;
-        
         dimensions = readDimensions();
-        
         anzExamples = readAnzExamples();
-        
         dataMatrix = new float[anzExamples][dimensions];
-        
         read();
     }
     

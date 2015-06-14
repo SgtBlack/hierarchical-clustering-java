@@ -11,13 +11,9 @@ public class Distance {
     
     public Distance(float[][] matrix){
         posDataMatrix = matrix;
-        
         anzExamples = posDataMatrix.length;
-        
         dimensions = posDataMatrix[0].length;
-        
         distDataMatrix = new double[anzExamples][anzExamples];
-        
         calculate();
     }
     

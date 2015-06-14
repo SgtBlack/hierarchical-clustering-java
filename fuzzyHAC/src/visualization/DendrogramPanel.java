@@ -317,7 +317,7 @@ public class DendrogramPanel extends JPanel {
     
     private static Cluster createReadFileCluster(){
         
-        ReadFile rf = new ReadFile( "example.arff" );
+        ReadFile rf = new ReadFile( "easy.arff" );
         
         Distance d = new Distance( rf.getData() );
 
