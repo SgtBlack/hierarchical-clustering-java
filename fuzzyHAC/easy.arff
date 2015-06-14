@@ -1,18 +1,3 @@
-% Learning Challenge  -  Dataset ARFF-Export
-% ==========================================
-%
-% Dataset: Iris
-% Subset:  training
-%
-%
-% Dataset Characteristics
-% -----------------------
-% dimensions:                  4
-% number of training points:   76
-% number of test points:       37
-% number of validation points: 37
-% number of classes:           3
-
 @RELATION „Easy Example“
 
 @ATTRIBUTE x0 NUMERIC
