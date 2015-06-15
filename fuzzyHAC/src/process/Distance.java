@@ -33,10 +33,11 @@ public class Distance {
         
         // Distanzen berechnen
         for(int i = 0; i < anzExamples; i++){
-            sum = 0;
+            //sum = 0;
             
             for(int j = i + 1; j < anzExamples; j++){
-                 
+                sum = 0;
+                
                 for(int k = 0; k < dimensions; k++){
                     sum += Math.pow(posDataMatrix[i][k] - posDataMatrix[j][k], 2);
                 }
@@ -45,6 +46,8 @@ public class Distance {
                 
                 distDataMatrix[i][j] = dist;
                 distDataMatrix[j][i] = dist;
+                
+                System.out.println("dist " + i + " zu " + j + ": " + distDataMatrix[i][j]);
             }
         }
     }
