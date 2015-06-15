@@ -15,15 +15,14 @@ public class Main {
         
         
         // read data file
-<<<<<<< Updated upstream
-        ReadFile rf = new ReadFile( "iris.arff" );
-//        ReadFile rf = new ReadFile( "easy.arff" );
-//        ReadFile rf = new ReadFile( "triangles.arff" );
-=======
+        //ReadFile rf = new ReadFile( "iris.arff" );
+        //ReadFile rf = new ReadFile( "easy.arff" );
+        //ReadFile rf = new ReadFile( "triangles.arff" );
+
         //ReadFile rf = new ReadFile( "iris.arff" );
         ReadFile rf = new ReadFile( "easy.arff" );
         //ReadFile rf = new ReadFile( "triangles.arff" );
->>>>>>> Stashed changes
+
         
         // create object for distance calculation
         Distance d = new Distance( rf.getData() );
