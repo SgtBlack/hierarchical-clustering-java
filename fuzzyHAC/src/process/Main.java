@@ -16,7 +16,8 @@ public class Main {
         
         // read data file
 //        ReadFile rf = new ReadFile( "iris.arff" );
-        ReadFile rf = new ReadFile( "easy.arff" );
+//        ReadFile rf = new ReadFile( "easy.arff" );
+        ReadFile rf = new ReadFile( "triangles.arff" );
         
         // create object for distance calculation
         Distance d = new Distance( rf.getData() );
@@ -30,10 +31,14 @@ public class Main {
             names[i] = Integer.toString(i);
         }
         
-        // 
+        // cluster with specified algorithm
         ClusteringAlgorithm alg = new DefaultClusteringAlgorithm();
         Cluster cluster = alg.performClustering(distances, names, new AverageLinkageStrategy());
         cluster.toConsole(0);
+        
+        // write a file with the class labels
+        WriteLabelFile labelfile = new WriteLabelFile(cluster,3);
+        labelfile.createFile();
         
     }
     
