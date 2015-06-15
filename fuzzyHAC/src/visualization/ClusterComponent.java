@@ -27,9 +27,9 @@ import algorithm.Cluster;
 
 public class ClusterComponent implements Paintable {
 
-	private Cluster cluster;
-	private VCoord linkPoint;
-	private VCoord initPoint;
+    private Cluster cluster;
+    private VCoord linkPoint;
+    private VCoord initPoint;
     private boolean printName;
     private int dotRadius = 2;
     private int namePadding = 6;
@@ -79,28 +79,28 @@ public class ClusterComponent implements Paintable {
         this.initPoint = initPoint;
     }
     
-	public Cluster getCluster() {
-		return cluster;
-	}
+    public Cluster getCluster() {
+            return cluster;
+    }
 
-	public void setCluster(Cluster cluster) {
-		this.cluster = cluster;
-	}
+    public void setCluster(Cluster cluster) {
+            this.cluster = cluster;
+    }
 
-	public boolean isPrintName() {
-		return printName;
-	}
+    public boolean isPrintName() {
+            return printName;
+    }
 
-	public void setPrintName(boolean printName) {
-		this.printName = printName;
-	}
+    public void setPrintName(boolean printName) {
+            this.printName = printName;
+    }
 
-	public ClusterComponent (Cluster cluster, boolean printName, VCoord initPoint) {
-		this.printName = printName;
-		this.cluster = cluster;
-		this.initPoint = initPoint;
-		this.linkPoint = initPoint;
-	}
+    public ClusterComponent (Cluster cluster, boolean printName, VCoord initPoint) {
+            this.printName = printName;
+            this.cluster = cluster;
+            this.initPoint = initPoint;
+            this.linkPoint = initPoint;
+    }
 
     @Override
     public void paint(Graphics2D g, int xDisplayOffset, int yDisplayOffset, double xDisplayFactor, double yDisplayFactor, boolean decorated) {

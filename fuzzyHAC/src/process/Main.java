@@ -15,9 +15,15 @@ public class Main {
         
         
         // read data file
+<<<<<<< Updated upstream
         ReadFile rf = new ReadFile( "iris.arff" );
 //        ReadFile rf = new ReadFile( "easy.arff" );
 //        ReadFile rf = new ReadFile( "triangles.arff" );
+=======
+        //ReadFile rf = new ReadFile( "iris.arff" );
+        ReadFile rf = new ReadFile( "easy.arff" );
+        //ReadFile rf = new ReadFile( "triangles.arff" );
+>>>>>>> Stashed changes
         
         // create object for distance calculation
         Distance d = new Distance( rf.getData() );
@@ -25,7 +31,7 @@ public class Main {
         // get the distance matrix from each data point to each data point
         double[][] distances = d.getDistMatrix();
         
-        // get the names of the data points (0..n)
+        // get the names of the data points (0...n)
         String[] names = new String[distances.length];
         for(int i = 0; i < distances.length; i++){
             names[i] = Integer.toString(i);
