@@ -31,8 +31,7 @@ public class Main {
         // cluster with specified algorithm
         ClusteringAlgorithm alg = new DefaultClusteringAlgorithm();
         //Cluster cluster = alg.performClustering(distances, names, new FuzzySingleLinkageStrategy());
-        //Cluster cluster = alg.performClustering(distances, names, new FuzzyAverageLinkageStrategy());
-        Cluster cluster = alg.performWeightedClustering(distances, names, weights, new FuzzyAverageLinkageStrategy());
+        Cluster cluster = alg.performClustering(distances, names, new FuzzyAverageLinkageStrategy());
         cluster.toConsole(0);
         
         // write a file with the class labels
