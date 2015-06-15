@@ -1,9 +1,6 @@
 package process;
 
-import algorithm.AverageLinkageStrategy;
-import algorithm.Cluster;
-import algorithm.ClusteringAlgorithm;
-import algorithm.DefaultClusteringAlgorithm;
+import algorithm.*;
 
 
 public class Main {
@@ -33,13 +30,14 @@ public class Main {
         
         // cluster with specified algorithm
         ClusteringAlgorithm alg = new DefaultClusteringAlgorithm();
-        Cluster cluster = alg.performClustering(distances, names, new AverageLinkageStrategy());
+        //Cluster cluster = alg.performClustering(distances, names, new FuzzySingleLinkageStrategy());
+        //Cluster cluster = alg.performClustering(distances, names, new FuzzyAverageLinkageStrategy());
+        Cluster cluster = alg.performWeightedClustering(distances, names, weights, new FuzzyAverageLinkageStrategy());
         cluster.toConsole(0);
         
         // write a file with the class labels
         WriteLabelFile labelfile = new WriteLabelFile(cluster,3);
         labelfile.createFile();
-        
     }
     
 }
