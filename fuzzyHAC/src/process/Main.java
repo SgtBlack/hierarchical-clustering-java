@@ -30,13 +30,24 @@ public class Main {
         
         // cluster with specified algorithm
         ClusteringAlgorithm alg = new DefaultClusteringAlgorithm();
-        //Cluster cluster = alg.performClustering(distances, names, new FuzzySingleLinkageStrategy());
-        Cluster cluster = alg.performClustering(distances, names, new FuzzyAverageLinkageStrategy());
-        cluster.toConsole(0);
+        
+        Cluster cluster_single = alg.performClustering(distances, names, new SingleLinkageStrategy());
+        Cluster cluster_fuzzysingle = alg.performClustering(distances, names, new FuzzySingleLinkageStrategy());
+        Cluster cluster_average = alg.performClustering(distances, names, new AverageLinkageStrategy());
+        Cluster cluster_fuzzyaverage = alg.performClustering(distances, names, new FuzzyAverageLinkageStrategy());
         
         // write a file with the class labels
-        WriteLabelFile labelfile = new WriteLabelFile(cluster,3);
-        labelfile.createFile();
+        WriteLabelFile labelfile_single = new WriteLabelFile(cluster_single,3);
+        labelfile_single.createFile("sol_single");
+        
+        WriteLabelFile labelfile_fuzzysingle = new WriteLabelFile(cluster_fuzzysingle,3);
+        labelfile_fuzzysingle.createFile("sol_fuzzysingle");
+        
+        WriteLabelFile labelfile_average = new WriteLabelFile(cluster_average,3);
+        labelfile_average.createFile("sol_average");
+        
+        WriteLabelFile labelfile_fuzzyaverage = new WriteLabelFile(cluster_fuzzyaverage,3);
+        labelfile_fuzzyaverage.createFile("sol_fuzzyaverage");
     }
     
 }

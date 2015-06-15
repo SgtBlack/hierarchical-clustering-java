@@ -24,7 +24,7 @@ public class WriteLabelFile {
         datapoints = new ArrayList<>();
     }
     
-    public void createFile(){
+    public void createFile(String name){
         Integer i = 1;
         for( Cluster sol : solution ){
             getLeafs(sol,i);
@@ -32,7 +32,7 @@ public class WriteLabelFile {
         }
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter("solution.txt", "UTF-8");
+            writer = new PrintWriter(name+".txt", "UTF-8");
             Collections.sort(datapoints, new Comparator<Integer[]>(){
                 @Override
                 public int compare(Integer[]  data1, Integer[]  data2)
