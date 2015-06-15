@@ -46,8 +46,6 @@ public class Distance {
                 
                 distDataMatrix[i][j] = dist;
                 distDataMatrix[j][i] = dist;
-                
-                System.out.println("dist " + i + " zu " + j + ": " + distDataMatrix[i][j]);
             }
         }
     }
