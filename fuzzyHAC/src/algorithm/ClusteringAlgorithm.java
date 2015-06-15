@@ -20,6 +20,9 @@ public interface ClusteringAlgorithm {
 
   public Cluster performClustering(double[][] distances, String[] clusterNames,
       LinkageStrategy linkageStrategy);
+  
+  public Cluster performClusteringK(double[][] distances, String[] clusterNames,
+      LinkageStrategy linkageStrategy, int k);
 
   public Cluster performWeightedClustering(double[][] distances, String[] clusterNames,
       double[] weights, LinkageStrategy linkageStrategy);

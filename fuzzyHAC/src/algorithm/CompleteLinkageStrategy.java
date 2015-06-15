@@ -16,7 +16,10 @@
 
 package algorithm;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class CompleteLinkageStrategy implements LinkageStrategy {
 
@@ -28,6 +31,25 @@ public class CompleteLinkageStrategy implements LinkageStrategy {
 		    if (Double.isNaN(max) || dist.getDistance() > max)
 		        max = dist.getDistance();
 		}
+		return new Distance(max);
+	}
+        
+        @Override
+	public Distance calculateDistanceK(Collection<Distance> distances,int k) {
+		double max = 0.0;
+                List<Double> dist_sorted = new ArrayList<Double>();
+
+		for (Distance dist : distances) {
+		    dist_sorted.add(dist.getDistance());
+		}
+                Collections.sort(dist_sorted);
+                if( k > dist_sorted.size()){
+                    k = dist_sorted.size();
+                }
+                for( int i = (dist_sorted.size()-1);i>(dist_sorted.size()-1-k);i--){
+                    max += dist_sorted.get(i);
+                }
+                max = max/k;
 		return new Distance(max);
 	}
 }

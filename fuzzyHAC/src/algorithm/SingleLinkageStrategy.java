@@ -16,7 +16,10 @@
 
 package algorithm;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class SingleLinkageStrategy implements LinkageStrategy {
 
@@ -28,6 +31,26 @@ public class SingleLinkageStrategy implements LinkageStrategy {
 		    if (Double.isNaN(min) || dist.getDistance() < min)
 		        min = dist.getDistance();
 		}
+		return new Distance(min);
+	}
+        
+        @Override
+	public Distance calculateDistanceK(Collection<Distance> distances, int k) {
+		double min = 0.0;
+                List<Double> dist_sorted = new ArrayList<Double>();
+
+		for (Distance dist : distances) {
+                    dist_sorted.add(dist.getDistance());
+                }
+                Collections.sort(dist_sorted);
+                
+                if( k > dist_sorted.size()){
+                    k = dist_sorted.size();
+                }
+                for( int i = 0;i<k;i++){
+                    min += dist_sorted.get(i);
+                }
+                min = min/k;
 		return new Distance(min);
 	}
 }

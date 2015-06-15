@@ -35,4 +35,12 @@ public class AverageLinkageStrategy implements LinkageStrategy {
 		}
 		return  new Distance(result);
 	}
+        
+        @Override
+	public Distance calculateDistanceK(Collection<Distance> distances, int k) {
+		
+                // TODO
+            
+		return  new Distance(0.0);
+	}
 }

@@ -24,6 +24,7 @@ public class HierarchyBuilder {
 
     private DistanceMap distances;
     private List<Cluster> clusters;
+    private int k;
 
     public DistanceMap getDistances() {
         return distances;
@@ -36,6 +37,13 @@ public class HierarchyBuilder {
     public HierarchyBuilder(List<Cluster> clusters, DistanceMap distances) {
         this.clusters = clusters;
         this.distances = distances;
+        this.k = 1;
+    }
+    
+    public HierarchyBuilder(List<Cluster> clusters, DistanceMap distances, int k) {
+        this.clusters = clusters;
+        this.distances = distances;
+        this.k = k;
     }
 
     public void agglomerate(LinkageStrategy linkageStrategy) {
@@ -69,7 +77,7 @@ public class HierarchyBuilder {
                     distances.remove(link2);
                 }
 
-                Distance newDistance = linkageStrategy.calculateDistance(distanceValues);
+                Distance newDistance = linkageStrategy.calculateDistanceK(distanceValues,k);
 
 				newLinkage.setLinkageDistance(newDistance.getDistance());
                 distances.add(newLinkage);

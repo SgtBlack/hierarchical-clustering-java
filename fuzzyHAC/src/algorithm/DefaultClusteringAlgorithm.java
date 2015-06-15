@@ -36,6 +36,20 @@ public class DefaultClusteringAlgorithm implements ClusteringAlgorithm {
         }
         return builder.getRootCluster();
     }
+    
+    @Override
+    public Cluster performClusteringK(double[][] distances,String[] clusterNames,LinkageStrategy linkageStrategy, int k){
+        checkArguments(distances, clusterNames, linkageStrategy);
+        /* Setup model */
+        List<Cluster> clusters = createClusters(clusterNames);
+        DistanceMap linkages = createLinkages(distances, clusters);
+        /* Process */
+        HierarchyBuilder builder = new HierarchyBuilder(clusters, linkages,k);
+        while (!builder.isTreeComplete()) {
+          builder.agglomerate(linkageStrategy);
+        }
+        return builder.getRootCluster();
+    }
 
     private void checkArguments(double[][] distances,String[] clusterNames,LinkageStrategy linkageStrategy) {
         if (distances == null || distances.length == 0 || distances[0].length != distances.length) {
