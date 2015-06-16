@@ -41,7 +41,8 @@ public class WriteLabelFile {
                 }
             });
             for(Integer[] data : datapoints ){
-                writer.println(data[0]+","+data[1]);
+                //writer.println(data[0]+","+data[1]);
+                writer.println(data[1]);
             }            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(WriteLabelFile.class.getName()).log(Level.SEVERE, null, ex);
