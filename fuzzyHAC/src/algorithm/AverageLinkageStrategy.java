@@ -28,11 +28,13 @@ public class AverageLinkageStrategy implements LinkageStrategy {
 		for (Distance dist : distances) {
 			sum += dist.getDistance();
 		}
+                
 		if (distances.size() > 0) {
 			result = sum / distances.size();
 		} else {
 			result = 0.0;
 		}
+                
 		return  new Distance(result);
 	}
         

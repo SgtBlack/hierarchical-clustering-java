@@ -44,9 +44,9 @@ public class DefaultClusteringAlgorithm implements ClusteringAlgorithm {
         List<Cluster> clusters = createClusters(clusterNames);
         DistanceMap linkages = createLinkages(distances, clusters);
         /* Process */
-        HierarchyBuilder builder = new HierarchyBuilder(clusters, linkages,k);
+        HierarchyBuilder builder = new HierarchyBuilder(clusters, linkages, k);
         while (!builder.isTreeComplete()) {
-          builder.agglomerate(linkageStrategy);
+            builder.agglomerate(linkageStrategy);
         }
         return builder.getRootCluster();
     }

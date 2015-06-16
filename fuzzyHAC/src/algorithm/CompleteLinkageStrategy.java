@@ -42,11 +42,14 @@ public class CompleteLinkageStrategy implements LinkageStrategy {
 		for (Distance dist : distances) {
 		    dist_sorted.add(dist.getDistance());
 		}
+                
                 Collections.sort(dist_sorted);
-                if( k > dist_sorted.size()){
+                
+                if( k > dist_sorted.size() ){
                     k = dist_sorted.size();
                 }
-                for( int i = (dist_sorted.size()-1);i>(dist_sorted.size()-1-k);i--){
+                
+                for( int i = (dist_sorted.size()-1); i > (dist_sorted.size()-1-k); i--){
                     max += dist_sorted.get(i);
                 }
                 max = max/k;
