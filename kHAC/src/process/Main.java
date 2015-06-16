@@ -8,12 +8,12 @@ import java.util.Arrays;
 public class Main {
 
     /**
-     * @param args[0] inputFile: typ arff
-     * @param args[1] Anzahl der Cluster
-     * @param args[2] Linkage Methode
-     * @param args[3] K -> Anzahl der einbezogenen Datenpunkte beim Linkage
+     * @param args[0] inputFile: "example.arff"
+     * @param args[1] number of solution clusters
+     * @param args[2] linkage method
+     * @param args[3] k: number of used datapoints in linkage method
+     *                (if k = 1 the standard methods are used)
      */
-    
     private final static String[] LINKAGE_STRATEGY = new String[] {"single", "complete", "average"};
     
     public static void main(String[] args) {
