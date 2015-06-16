@@ -37,7 +37,7 @@ public class SingleLinkageStrategy implements LinkageStrategy {
         @Override
 	public Distance calculateDistanceK(Collection<Distance> distances, int k) {
 		double min = 0.0;
-                List<Double> dist_sorted = new ArrayList<Double>();
+                List<Double> dist_sorted = new ArrayList<>();
 
 		for (Distance dist : distances) {
                     dist_sorted.add(dist.getDistance());

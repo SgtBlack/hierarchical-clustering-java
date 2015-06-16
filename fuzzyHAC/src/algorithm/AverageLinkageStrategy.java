@@ -44,8 +44,8 @@ public class AverageLinkageStrategy implements LinkageStrategy {
         @Override
 	public Distance calculateDistanceK(Collection<Distance> distances, int k) {
 		double sum = 0;
-		double result;
-                List<Double> dist_list = new ArrayList<Double>();
+		double result = 0.0;
+                List<Double> dist_list = new ArrayList<>();
                 
                 for (Distance dist : distances) {
                     dist_list.add(dist.getDistance());
