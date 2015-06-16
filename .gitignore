@@ -1,2 +1,10 @@
 
 *.properties
+
+fuzzyHAC/build/classes/.netbeans_automatic_build
+
+fuzzyHAC/build/built-jar.properties
+
+fuzzyHAC/build/classes/.netbeans_update_resources
+
+*.class

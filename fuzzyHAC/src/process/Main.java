@@ -8,11 +8,10 @@ import java.util.Arrays;
 public class Main {
 
     /**
-     * @param args the command line arguments
-     * args[0] inputFile
-     * args[1] Anzahl der Cluster
-     * args[2] Linkage Methode
-     * args[3] K -> Anzahl der einbezogenen Datenpunkte beim Linkage
+     * @param args[0] inputFile: typ arff
+     * @param args[1] Anzahl der Cluster
+     * @param args[2] Linkage Methode
+     * @param args[3] K -> Anzahl der einbezogenen Datenpunkte beim Linkage
      */
     
     private final static String[] LinkageStrategies = new String[] {"single", "complete", "average"};
@@ -30,8 +29,8 @@ public class Main {
                 throw new IllegalArgumentException("Requires at least one cluster!");
             }
             
-            if( Arrays.asList(LinkageStrategies).contains(args[2]) ){
-                throw new IllegalArgumentException("Unknown Linkage Strategy!");
+            if( !Arrays.asList(LinkageStrategies).contains(args[2]) ){
+                throw new IllegalArgumentException("Unknown Linkage Strategy: " + args[2]);
             }
             
             if( Integer.parseInt( args[3] ) < 1 ){

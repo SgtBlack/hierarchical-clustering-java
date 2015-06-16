@@ -38,8 +38,7 @@ public class ReadFile {
                 new FileReader(fileName);
 
             // Always wrap FileReader in BufferedReader.
-            BufferedReader bufferedReader = 
-                new BufferedReader(fileReader);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
             
             String[] parts;
             int aktLine = 0;
@@ -65,15 +64,11 @@ public class ReadFile {
         }
         catch(FileNotFoundException ex) {
             System.out.println(
-                "Unable to open file '" + 
-                fileName + "'");                
+                "Unable to open file '" + fileName + "'");                
         }
         catch(IOException ex) {
             System.out.println(
-                "Error reading file '" 
-                + fileName + "'");                   
-            // Or we could just do this: 
-            // ex.printStackTrace();
+                "Error reading file '" + fileName + "'");                   
         }
     }    
     
@@ -89,8 +84,7 @@ public class ReadFile {
                 new FileReader(fileName);
 
             // Always wrap FileReader in BufferedReader.
-            BufferedReader bufferedReader = 
-                new BufferedReader(fileReader);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
             
             String[] parts;
 
@@ -111,16 +105,10 @@ public class ReadFile {
             bufferedReader.close();            
         }
         catch(FileNotFoundException ex) {
-            System.out.println(
-                "Unable to open file '" + 
-                fileName + "'");                
+            System.out.println("Unable to open file '" + fileName + "'");                
         }
         catch(IOException ex) {
-            System.out.println(
-                "Error reading file '" 
-                + fileName + "'");                   
-            // Or we could just do this: 
-            // ex.printStackTrace();
+            System.out.println("Error reading file '" + fileName + "'");                   
         }
         
         return 0;
@@ -135,12 +123,10 @@ public class ReadFile {
 
         try {
             // FileReader reads text files in the default encoding.
-            FileReader fileReader = 
-                new FileReader(fileName);
+            FileReader fileReader = new FileReader(fileName);
 
             // Always wrap FileReader in BufferedReader.
-            BufferedReader bufferedReader = 
-                new BufferedReader(fileReader);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             while((line = bufferedReader.readLine()) != null) {
 
@@ -156,16 +142,10 @@ public class ReadFile {
             bufferedReader.close();            
         }
         catch(FileNotFoundException ex) {
-            System.out.println(
-                "Unable to open file '" + 
-                fileName + "'");                
+            System.out.println("Unable to open file '" + fileName + "'");                
         }
         catch(IOException ex) {
-            System.out.println(
-                "Error reading file '" 
-                + fileName + "'");                   
-            // Or we could just do this: 
-            // ex.printStackTrace();
+            System.out.println("Error reading file '"  + fileName + "'");                   
         }
         
         return count;
