@@ -8,3 +8,6 @@ fuzzyHAC/build/built-jar.properties
 fuzzyHAC/build/classes/.netbeans_update_resources
 
 *.class
+/kHAC/build/
+/kHAC/dist/
+/kHAC/nbproject/private/
