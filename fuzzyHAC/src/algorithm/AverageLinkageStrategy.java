@@ -16,7 +16,10 @@
 
 package algorithm;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class AverageLinkageStrategy implements LinkageStrategy {
 
@@ -40,9 +43,38 @@ public class AverageLinkageStrategy implements LinkageStrategy {
         
         @Override
 	public Distance calculateDistanceK(Collection<Distance> distances, int k) {
-		
-                // TODO
+		double sum = 0;
+		double result;
+                List<Double> dist_list = new ArrayList<Double>();
+                
+                for (Distance dist : distances) {
+                    dist_list.add(dist.getDistance());
+                }
+                
+                if( k > dist_list.size() ){
+                    k = dist_list.size();
+                }
+                
+                int randomNum;
+                int randomMin = 0;
+                
+                //Collections.sort(dist_list);
+                
+                for( int i = 0; i < k; i++ ){
+                    
+                    randomNum = randomMin + (int)(Math.random() * ( dist_list.size() - 1 )); 
+                    
+                    sum += dist_list.get(randomNum);
+                    
+                    dist_list.remove(randomNum);
+                }
+                
+                if (distances.size() > 0) {
+                    result = sum / k;
+		} else {
+                    result = 0.0;
+		}
             
-		return  new Distance(0.0);
+		return  new Distance(result);
 	}
 }
